@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nokia-ZTE</title>
+    <style>
+        /* Cores */
+        :root {
+            --primary-color: #2B3591;
+            --secondary-color: #CD2784;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --text-color: #495057;
+            --accent-color: #ffc107;
+            --input-bg-color: #fff;
+            --input-border-color: #ced4da;
+            --form-section-bg: #fdfdfd;
+            --form-section-border: #d0d0d5;
+        }
+
+        /* Reset */
+        body,
+        h1,
+        h2,
+        h3,
+        p,
+        label,
+        input,
+        button {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+
+        /* Geral */
+        body {
+            font-family: "Gotham", sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .app-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .app-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            background-image: url("https://proxxima.net/themes/milha-telecom/assets/img/bgs/people-working.jpg");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .app-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(43, 53, 145, 0.7);
+            z-index: 1;
+        }
+
+        .app-header>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .app-header__title {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .app-header__subtitle {
+            font-size: 1em;
+            font-style: italic;
+            color: #eee;
+        }
+
+        /* Main */
+        .app-main {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        /* Formulário */
+        .formulario {
+            width: 48%;
+        }
+
+        .form__section {
+            margin-bottom: 20px;
+            border: 1px solid var(--form-section-border);
+            border-radius: 10px;
+            padding: 20px;
+            background-color: var(--form-section-bg);
+        }
+
+        .form__section-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: 700;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid var(--input-border-color);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--input-bg-color);
+            color: var(--text-color);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 5px rgba(43, 53, 145, 0.3);
+        }
+
+        /* Resultados */
+        .resultados {
+            width: 48%;
+        }
+
+        .campo {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .campo b {
+            font-weight: bold;
+            /* Negrito */
+        }
+
+        /* Botões */
+        .form__buttons-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .form__submit-button,
+        .copiar-btn {
+            padding: 10px 20px;
+            /* Diminuí o padding */
+            font-size: 0.9em;
+            /* Diminuí o tamanho da fonte */
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form__submit-button {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+
+        .copiar-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            margin-left: 10px;
+        }
+
+        .form__submit-button:hover,
+        .copiar-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .form__submit-button:focus,
+        .copiar-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(205, 39, 132, 0.4);
+        }
+
+        /* Footer */
+        .app-footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--dark-color);
+            color: #fff;
+            font-size: 0.8em;
+        }
+
+        /* Media Queries para Responsividade */
+        @media (max-width: 768px) {
+            .app-container {
+                max-width: 100%;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .app-header {
+                padding: 20px;
+                border-radius: 0;
+            }
+
+            .app-main {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .formulario,
+            .resultados {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .form__buttons-container {
+                text-align: center;
+            }
+
+            .form__submit-button,
+            .copiar-btn {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .app-footer {
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1 class="app-header__title">Nokia-ZTE</h1>
+            <p class="app-header__subtitle">Gerador de Comandos</p>
+        </header>
+
+        <main class="app-main">
+            <div class="formulario">
+                <section class="form__section">
+                    <h2 class="form__section-title">Informações de Configuração</h2>
+                    <div class="form-group">
+                        <label for="pppoe">Usuário PPPoE:</label>
+                        <input type="text" id="pppoe" placeholder="Digite o PPPoE" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serial">Serial:</label>
+                        <input type="text" id="serial" placeholder="Digite o Serial" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="slot">Slot:</label>
+                        <input type="number" id="slot" placeholder="Digite o Slot" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="porta">Porta:</label>
+                        <input type="number" id="porta" placeholder="Digite a Porta" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id">ID:</label>
+                        <input type="number" id="id" placeholder="Digite o ID" class="form-control">
+                    </div>
+
+                    <div class="form__buttons-container">
+                        <button onclick="gerarComandos()" class="form__submit-button">Gerar Comandos</button>
+                    </div>
+                </section>
+            </div>
+
+            <div class="resultados">
+                <section class="form__section">
+                    <h3 class="form__section-title">Comandos Gerados</h3>
+                    <p class="campo">
+                        <b>configure terminal</b>
+                        <button class="copiar-btn" onclick="copiarTexto('configure terminal')">Copiar</button>
+                    </p>
+                    <p class="campo">
+                        <b>interface gpon-olt_1/</b><span id="exibirSlot1">--</span><b>/</b><span
+                            id="exibirPorta1">--</span><br>
+                        <b>onu</b> <span id="exibirId1">--</span> <b>type NOKIA-G-1426G-A sn</b> <span
+                            id="exibirSerial">--</span><br>
+                        <b>exit</b>
+                        <button class="copiar-btn"
+                            onclick="copiarTexto('interface gpon-olt_1/' + document.getElementById('exibirSlot1').innerText + '/' + document.getElementById('exibirPorta1').innerText + '\\nonu ' + document.getElementById('exibirId1').innerText + ' type NOKIA-G-1426G-A sn ' + document.getElementById('exibirSerial').innerText + '\\nexit')">Copiar</button>
+                    </p>
+                    <p class="campo">
+                        <b>interface gpon-onu_1/</b><span id="exibirSlot2">--</span><b>/</b><span
+                            id="exibirPorta2">--</span><b>:</b><span id="exibirId2">--</span><br>
+                        <b>name</b> <span id="exibirPPPoE1">--</span><br>
+                        <b>description</b> <span id="exibirPPPoE2">--</span><br>
+                        <b>sn-bind enable sn</b><br>
+                        <b>tcont 1 profile SMARTOLT-1G-UP</b><br>
+                        <b>gemport 1 tcont 1</b><br>
+                        <b>gemport 1 traffic-limit downstream SMARTOLT-1G-DOWN</b><br>
+                        <b>service-port 1 vport 1 user-vlan 188 vlan 188</b><br>
+                        <b>exit</b>
+                        <button class="copiar-btn"
+                            onclick="copiarTexto('interface gpon-onu_1/' + document.getElementById('exibirSlot2').innerText + '/' + document.getElementById('exibirPorta2').innerText + ':' + document.getElementById('exibirId2').innerText + '\\nname ' + document.getElementById('exibirPPPoE1').innerText + '\\ndescription ' + document.getElementById('exibirPPPoE2').innerText + '\\nsn-bind enable sn\\ntcont 1 profile SMARTOLT-1G-UP\\ngemport 1 tcont 1\\ngemport 1 traffic-limit downstream SMARTOLT-1G-DOWN\\nservice-port 1 vport 1 user-vlan 188 vlan 188\\nexit')">Copiar</button>
+                    </p>
+                    <p class="campo">
+                        <b>pon-onu-mng gpon-onu_1/</b><span id="exibirSlot3">--</span><b>/</b><span
+                            id="exibirPorta3">--</span><b>:</b><span id="exibirId3">--</span><br>
+                        <b>flow mode 1 tag-filter vlan-filter untag-filter discard</b><br>
+                        <b>flow 1 pri 0 vlan 188</b><br>
+                        <b>gemport 1 flow 1</b><br>
+                        <b>switchport-bind switch_0/1 iphost 1</b><br>
+                        <b>switchport-bind switch_0/1 veip 1</b><br>
+                        <b>pppoe 1 nat enable user</b> <span id="exibirPPPoE3">--</span> <b>password
+                            {{SENHA_PPPOE}}</b><br>
+                        <b>vlan-filter-mode iphost 1 tag-filter vlan-filter untag-filter discard</b><br>
+                        <b>vlan-filter iphost 1 pri 0 vlan 188</b><br>
+                        <b>dhcp-ip ethuni eth_0/1 from-onu</b><br>
+                        <b>dhcp-ip ethuni eth_0/2 from-onu</b><br>
+                        <b>dhcp-ip ethuni eth_0/3 from-onu</b><br>
+                        <b>dhcp-ip ethuni eth_0/4 from-onu</b>
+                        <button class="copiar-btn"
+                            onclick="copiarTexto('pon-onu-mng gpon-onu_1/' + document.getElementById('exibirSlot3').innerText + '/' + document.getElementById('exibirPorta3').innerText + ':' + document.getElementById('exibirId3').innerText + '\\nflow mode 1 tag-filter vlan-filter untag-filter discard\\nflow 1 pri 0 vlan 188\\ngemport 1 flow 1\\nswitchport-bind switch_0/1 iphost 1\\nswitchport-bind switch_0/1 veip 1\\npppoe 1 nat enable user ' + document.getElementById('exibirPPPoE3').innerText + ' password {{SENHA_PPPOE}}\\nvlan-filter-mode iphost 1 tag-filter vlan-filter untag-filter discard\\nvlan-filter iphost 1 pri 0 vlan 188\\ndhcp-ip ethuni eth_0/1 from-onu\\ndhcp-ip ethuni eth_0/2 from-onu\\ndhcp-ip ethuni eth_0/3 from-onu\\ndhcp-ip ethuni eth_0/4 from-onu')">Copiar</button>
+                    </p>
+                </section>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>© 2024 Brunno Leandro, Equipe Backoffice Redes da BH e Gabriel Souza. Todos os direitos
+                reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        function gerarComandos() {
+            const pppoe = document.getElementById("pppoe").value;
+            const serial = document.getElementById("serial").value;
+            const slot = document.getElementById("slot").value;
+            const porta = document.getElementById("porta").value;
+            const id = document.getElementById("id").value;
+
+            document.getElementById("exibirPPPoE1").innerText = pppoe || "--";
+            document.getElementById("exibirPPPoE2").innerText = pppoe || "--";
+            document.getElementById("exibirPPPoE3").innerText = pppoe || "--";
+            document.getElementById("exibirSerial").innerText = serial || "--";
+            document.getElementById("exibirSlot1").innerText = slot || "--";
+            document.getElementById("exibirPorta1").innerText = porta || "--";
+            document.getElementById("exibirId1").innerText = id || "--";
+            document.getElementById("exibirSlot2").innerText = slot || "--";
+            document.getElementById("exibirPorta2").innerText = porta || "--";
+            document.getElementById("exibirId2").innerText = id || "--";
+            document.getElementById("exibirSlot3").innerText = slot || "--";
+            document.getElementById("exibirPorta3").innerText = porta || "--";
+            document.getElementById("exibirId3").innerText = id || "--";
+        }
+
+        function copiarTexto(texto) {
+            const textoFormatado = texto.replace(/\\n/g, '\n');
+            navigator.clipboard.writeText(textoFormatado)
+                .then(
+                    () => alert("Texto copiado!")
+                )
+                .catch(
+                    err => alert("Erro ao copiar: ", err)
+                );
+        }
+    </script>
+</body>
+
+</html>
