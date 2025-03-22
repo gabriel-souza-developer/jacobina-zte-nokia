@@ -23,7 +23,7 @@ Este projeto é um gerador de comandos para configuração de equipamentos Nokia
 *   **Serial:** Número de série do equipamento.
 *   **Slot:** Slot do equipamento.
 *   **Porta:** Porta do equipamento.
-*   **ID:** ID do equipamento.
+*   **ID:** ID do equipamento na GPON
 
 ## Comandos Gerados
 
@@ -38,7 +38,7 @@ A seção de comandos gerados exibe os seguintes comandos:
 
 ## Créditos
 
-*   **Desenvolvedores:** Brunno Leandro, Equipe Backoffice Redes da BH e Gabriel Souza.
+*   **Desenvolvedores:** Marcio Miqueias, Brunno Leandro, Gabriel Souza. Todos os direitos reservados.
 *   **Design:** Baseado em um template com paleta de cores moderna e responsiva.
 
 ## Licença
@@ -47,7 +47,7 @@ Todos os direitos reservados.
 
 ## Imagem de Exemplo
 
-![Imagem do Projeto](https://proxxima.net/themes/milha-telecom/assets/img/bgs/people-working.jpg)
+![Imagem do Projeto](./assets/img/Print%20aplicação.png)
 
 ## Contribuição
 
